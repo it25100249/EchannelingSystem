@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediConnect | My Appointments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet"
+          href="/css/appointments.css?v=refund2">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- ======================================
+         SIDEBAR
+    ======================================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <div>
+                <h2>MediConnect</h2>
+                <span>Patient Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-label">
+                MAIN MENU
+            </p>
+
+
+            <a href="/patient/dashboard"
+               class="menu-item">
+
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="/patient/doctors"
+               class="menu-item">
+
+                <i class="bi bi-search"></i>
+                <span>Find Doctors</span>
+
+            </a>
+
+
+            <a href="/patient/appointments"
+               class="menu-item active">
+
+                <i class="bi bi-calendar2-check"></i>
+                <span>My Appointments</span>
+
+            </a>
+
+
+            <a href="/patient/payments"
+               class="menu-item">
+
+                <i class="bi bi-credit-card"></i>
+                <span>Payments</span>
+
+            </a>
+
+
+            <p class="menu-label second-label">
+                HEALTH RECORDS
+            </p>
+
+
+            <a href="/patient/prescriptions"
+               class="menu-item">
+
+                <i class="bi bi-file-earmark-medical"></i>
+                <span>Prescriptions</span>
+
+            </a>
+
+
+            <a href="/patient/reviews"
+               class="menu-item">
+
+                <i class="bi bi-star"></i>
+                <span>Doctor Reviews</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    <i class="bi bi-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need help?</strong>
+                    <p>Contact our support team</p>
+                </div>
+
+            </div>
+
+
+            <button class="logout-button"
+                    id="logoutButton">
+
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Sign Out</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================
+         MAIN CONTENT
+    ======================================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="page-location">
+
+                <span>Patient Portal</span>
+
+                <i class="bi bi-chevron-right"></i>
+
+                <strong>
+                    My Appointments
+                </strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button class="notification-button">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar"
+                         id="userAvatar">
+                        P
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="topUserName">
+                            Patient
+                        </strong>
+
+                        <span>Patient</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             PAGE CONTENT
+        ======================================= -->
+
+        <div class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <section class="page-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        APPOINTMENTS
+                    </p>
+
+                    <h1>
+                        My
+                        <span>Appointments</span>
+                    </h1>
+
+                    <p class="heading-description">
+                        View and manage your doctor
+                        appointments in one place.
+                    </p>
+
+                </div>
+
+
+                <a href="/patient/doctors"
+                   class="new-appointment-button">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Book New Appointment
+
+                </a>
+
+            </section>
+
+
+            <!-- ==================================
+                 SUMMARY CARDS
+            =================================== -->
+
+            <section class="summary-grid">
+
+
+                <!-- TOTAL -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon total">
+
+                        <i class="bi bi-calendar2"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Appointments
+                        </span>
+
+                        <strong id="totalAppointments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- UPCOMING -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon upcoming">
+
+                        <i class="bi bi-calendar2-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Active
+                        </span>
+
+                        <strong id="activeAppointments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAID -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon paid">
+
+                        <i class="bi bi-credit-card-2-front"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Paid
+                        </span>
+
+                        <strong id="paidAppointments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLETED -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon completed">
+
+                        <i class="bi bi-check-circle"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Completed
+                        </span>
+
+                        <strong id="completedAppointments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================
+                 APPOINTMENTS PANEL
+            =================================== -->
+
+            <section class="appointments-panel">
+
+
+                <!-- PANEL HEADER -->
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Appointment History
+                        </h2>
+
+                        <p>
+                            Your booked consultations
+                            and current status.
+                        </p>
+
+                    </div>
+
+
+                    <div class="filter-tabs">
+
+                        <button class="filter-button active"
+                                data-filter="ALL">
+
+                            All
+
+                        </button>
+
+
+                        <button class="filter-button"
+                                data-filter="ACTIVE">
+
+                            Active
+
+                        </button>
+
+
+                        <button class="filter-button"
+                                data-filter="COMPLETED">
+
+                            Completed
+
+                        </button>
+
+
+                        <button class="filter-button"
+                                data-filter="CANCELLED">
+
+                            Cancelled
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     LOADING
+                =================================== -->
+
+                <div id="loadingState"
+                     class="loading-state">
+
+                    <div class="loader"></div>
+
+                    <p>
+                        Loading your appointments...
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                     ERROR
+                =================================== -->
+
+                <div id="errorMessage"
+                     class="error-message hidden">
+
+                    <i class="bi bi-exclamation-circle"></i>
+
+                    <span>
+                        Unable to load appointments.
+                    </span>
+
+                </div>
+
+
+                <!-- ==================================
+                     APPOINTMENT LIST
+                =================================== -->
+
+                <div id="appointmentList"
+                     class="appointment-list">
+
+                    <!-- JavaScript creates
+                         appointment cards here -->
+
+                </div>
+
+
+                <!-- ==================================
+                     EMPTY STATE
+                =================================== -->
+
+                <div id="emptyState"
+                     class="empty-state hidden">
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-calendar2-x"></i>
+
+                    </div>
+
+                    <h3>
+                        No appointments found
+                    </h3>
+
+                    <p>
+                        You don't have any appointments
+                        in this category.
+                    </p>
+
+                    <a href="/patient/doctors">
+
+                        <i class="bi bi-search"></i>
+
+                        Find a Doctor
+
+                    </a>
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ==========================================
+     CANCEL APPOINTMENT MODAL
+=========================================== -->
+
+<div id="cancelModal"
+     class="modal-overlay hidden">
+
+    <div class="cancel-modal">
+
+        <button class="modal-close"
+                id="closeCancelModal">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <div class="warning-icon">
+
+            <i class="bi bi-exclamation-triangle"></i>
+
+        </div>
+
+
+        <h2>
+            Cancel Appointment?
+        </h2>
+
+
+        <p>
+            Are you sure you want to cancel
+            appointment
+            <strong id="cancelAppointmentNumber">
+                #-
+            </strong>?
+        </p>
+
+
+        <!-- ==================================
+             REFUND REASON
+             Only shown for PAID appointments
+        =================================== -->
+
+        <div id="refundReasonSection"
+             class="refund-reason-section hidden">
+
+            <label for="refundReason">
+                Cancellation / Refund Reason
+            </label>
+
+            <textarea
+                    id="refundReason"
+                    maxlength="500"
+                    rows="4"
+                    placeholder="Please explain why you are cancelling this appointment..."></textarea>
+
+            <div class="reason-footer">
+
+                <small>
+                    This reason will be reviewed by the administrator
+                    before processing your refund.
+                </small>
+
+                <span id="reasonCharacterCount">
+                    0 / 500
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="cancelMessage"
+             class="cancel-message">
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button id="keepAppointmentButton"
+                    class="keep-button">
+
+                Keep Appointment
+
+            </button>
+
+
+            <button id="confirmCancelButton"
+                    class="confirm-cancel-button">
+
+                <i class="bi bi-x-circle"></i>
+
+                Yes, Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="/js/appointments.js?v=refund2"></script>
+
+</body>
+</html>

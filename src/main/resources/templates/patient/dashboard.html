@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediConnect | Patient Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Dashboard CSS -->
+    <link
+            rel="stylesheet"
+            href="/css/patient-dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-layout">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+            <div>
+
+                <h2>MediConnect</h2>
+
+                <span>Patient Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+            <p class="menu-label">
+                MAIN MENU
+            </p>
+
+
+            <a href="/patient/dashboard"
+               class="menu-item active">
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="/patient/doctors"
+               class="menu-item">
+
+                <i class="bi bi-search"></i>
+
+                <span>Find Doctors</span>
+
+            </a>
+
+
+            <a href="/patient/appointments"
+               class="menu-item">
+
+                <i class="bi bi-calendar2-check"></i>
+
+                <span>My Appointments</span>
+
+            </a>
+
+
+            <a href="/patient/payments"
+               class="menu-item">
+
+                <i class="bi bi-credit-card"></i>
+
+                <span>Payments</span>
+
+            </a>
+
+
+            <p class="menu-label second-label">
+                HEALTH RECORDS
+            </p>
+
+
+            <a href="/patient/prescriptions"
+               class="menu-item">
+
+                <i class="bi bi-file-earmark-medical"></i>
+
+                <span>Prescriptions</span>
+
+            </a>
+
+
+            <a href="/patient/reviews"
+               class="menu-item">
+
+                <i class="bi bi-star"></i>
+
+                <span>Doctor Reviews</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- ================================================= -->
+        <!-- SIDEBAR BOTTOM -->
+        <!-- ================================================= -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- NEED HELP -->
+
+            <div class="help-card"
+                 onclick="openSupportModal()"
+                 style="cursor:pointer;">
+
+                <div class="help-icon">
+
+                    <i class="bi bi-headset"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>Need help?</strong>
+
+                    <p>Contact our support team</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIGN OUT -->
+
+            <button
+                    class="logout-button"
+                    id="logoutButton">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Sign Out</span>
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN AREA -->
+    <!-- ================================================= -->
+
+    <main class="main-content">
+
+
+        <!-- ================================================= -->
+        <!-- TOP BAR -->
+        <!-- ================================================= -->
+
+        <header class="topbar">
+
+
+            <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                        id="dashboardGlobalSearch"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="Search doctors, hospitals...">
+                <div id="dashboardSearchResults" class="dashboard-search-results"></div>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+
+
+
+                <div
+                        class="user-profile"
+                        id="patientProfileButton"
+                >
+
+
+                    <div
+                            class="user-avatar"
+                            id="userAvatar">
+
+                        P
+
+                    </div>
+
+
+                    <div class="user-info">
+
+                        <strong id="topUserName">
+                            Patient
+                        </strong>
+
+                        <span>
+                            Patient
+                        </span>
+
+                    </div>
+
+
+                    <i class="bi bi-chevron-down"></i>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- PAGE CONTENT -->
+        <!-- ================================================= -->
+
+        <div class="page-content">
+
+            <!-- ================================================= -->
+            <!-- HEALTHCARE BANNER SLIDER -->
+            <!-- ================================================= -->
+
+            <section class="dashboard-banner-slider">
+
+                <div class="banner-slides">
+
+                    <!-- BANNER 1 -->
+                    <div class="banner-slide active">
+
+                        <img
+                                src="/images/dashboard/banner1.jpg"
+                                alt="Find trusted doctors">
+
+                        <div class="banner-overlay"></div>
+
+                        <div class="banner-content">
+
+                <span class="banner-badge">
+                    MEDICONNECT
+                </span>
+
+                            <h2>
+                                Your Health,
+                                <br>
+                                Our Priority
+                            </h2>
+
+                            <p>
+                                Find trusted doctors and book
+                                your appointment with ease.
+                            </p>
+
+                            <button
+                                    type="button"
+                                    onclick="window.location.href='/patient/doctors'">
+
+                                Find a Doctor
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BANNER 2 -->
+                    <div class="banner-slide">
+
+                        <img
+                                src="/images/dashboard/banner2.jpg"
+                                alt="Easy doctor appointments">
+
+                        <div class="banner-overlay"></div>
+
+                        <div class="banner-content">
+
+                <span class="banner-badge">
+                    EASY CHANNELING
+                </span>
+
+                            <h2>
+                                Book Your Doctor
+                                <br>
+                                Anytime
+                            </h2>
+
+                            <p>
+                                Search by hospital,
+                                specialization and availability.
+                            </p>
+
+                            <button
+                                    type="button"
+                                    onclick="window.location.href='/patient/doctors'">
+
+                                Book Appointment
+
+                                <i class="bi bi-calendar2-check"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BANNER 3 -->
+                    <div class="banner-slide">
+
+                        <img
+                                src="/images/dashboard/banner3.jpg"
+                                alt="Manage healthcare online">
+
+                        <div class="banner-overlay"></div>
+
+                        <div class="banner-content">
+
+                <span class="banner-badge">
+                    DIGITAL HEALTHCARE
+                </span>
+
+                            <h2>
+                                Healthcare Made
+                                <br>
+                                Simple
+                            </h2>
+
+                            <p>
+                                Manage payments, prescriptions
+                                and appointments in one place.
+                            </p>
+
+                            <button
+                                    type="button"
+                                    onclick="window.location.href='/patient/appointments'">
+
+                                My Appointments
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LEFT -->
+                <button
+                        type="button"
+                        class="banner-control banner-prev"
+                        id="bannerPrevious">
+
+                    <i class="bi bi-chevron-left"></i>
+
+                </button>
+
+
+                <!-- RIGHT -->
+                <button
+                        type="button"
+                        class="banner-control banner-next"
+                        id="bannerNext">
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <!-- DOTS -->
+                <div class="banner-dots">
+
+                    <button
+                            type="button"
+                            class="banner-dot active"
+                            data-slide="0">
+                    </button>
+
+                    <button
+                            type="button"
+                            class="banner-dot"
+                            data-slide="1">
+                    </button>
+
+                    <button
+                            type="button"
+                            class="banner-dot"
+                            data-slide="2">
+                    </button>
+
+                </div>
+
+            </section>
+            <!-- ================================================= -->
+            <!-- WELCOME -->
+            <!-- ================================================= -->
+
+            <section class="welcome-section">
+
+
+                <div>
+
+
+                    <p class="welcome-label">
+                        PATIENT DASHBOARD
+                    </p>
+
+
+                    <h1>
+
+                        Good day,
+
+                        <span id="welcomeUserName">
+                            Patient
+                        </span>
+
+                        👋
+
+                    </h1>
+
+
+                    <p>
+                        Here's an overview of your healthcare activity.
+                    </p>
+
+
+                </div>
+
+
+                <button
+                        class="primary-button"
+                        id="findDoctorButton"
+                        type="button"
+                        onclick="window.location.href='/patient/doctors'">
+
+                    <i class="bi bi-search"></i>
+
+                    Find a Doctor
+
+                </button>
+
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- STAT CARDS -->
+            <!-- ================================================= -->
+
+            <section class="stats-grid">
+
+
+                <!-- APPOINTMENTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon appointment-icon">
+
+                        <i class="bi bi-calendar2-check"></i>
+
+                    </div>
+
+
+                    <div class="stat-details">
+
+                        <span>
+                            Appointments
+                        </span>
+
+                        <h2 id="appointmentCount">
+                            0
+                        </h2>
+
+                        <p>
+                            Total appointments
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRESCRIPTIONS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon prescription-icon">
+
+                        <i class="bi bi-capsule"></i>
+
+                    </div>
+
+
+                    <div class="stat-details">
+
+                        <span>
+                            Prescriptions
+                        </span>
+
+                        <h2 id="prescriptionCount">
+                            0
+                        </h2>
+
+                        <p>
+                            Medical prescriptions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon payment-icon">
+
+                        <i class="bi bi-wallet2"></i>
+
+                    </div>
+
+
+                    <div class="stat-details">
+
+                        <span>
+                            Payments
+                        </span>
+
+                        <h2 id="paymentCount">
+                            0
+                        </h2>
+
+                        <p>
+                            Payment records
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEWS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon review-icon">
+
+                        <i class="bi bi-star"></i>
+
+                    </div>
+
+
+                    <div class="stat-details">
+
+                        <span>
+                            Reviews
+                        </span>
+
+                        <h2 id="reviewCount">
+                            0
+                        </h2>
+
+                        <p>
+                            Reviews submitted
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- QUICK ACTIONS -->
+            <!-- ================================================= -->
+
+            <section class="content-section">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                        <p>
+                            Access your most-used healthcare services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+
+                    <!-- FIND DOCTOR -->
+
+                    <button
+                            class="action-card"
+                            type="button"
+                            onclick="window.location.href='/patient/doctors'">
+
+                        <div class="action-icon">
+
+                            <i class="bi bi-search-heart"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Find a Doctor
+                            </h3>
+
+                            <p>
+                                Search by specialization,
+                                hospital or availability.
+                            </p>
+
+                        </div>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </button>
+
+
+                    <!-- APPOINTMENTS -->
+
+                    <button
+                            class="action-card"
+                            type="button"
+                            onclick="window.location.href='/patient/appointments'">
+
+                        <div class="action-icon">
+
+                            <i class="bi bi-calendar-plus"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Appointments
+                            </h3>
+
+                            <p>
+                                View and manage your
+                                booked appointments.
+                            </p>
+
+                        </div>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </button>
+
+
+                    <!-- PRESCRIPTIONS -->
+
+                    <button
+                            class="action-card"
+                            type="button"
+                            onclick="window.location.href='/patient/prescriptions'">
+
+                        <div class="action-icon">
+
+                            <i class="bi bi-file-medical"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Prescriptions
+                            </h3>
+
+                            <p>
+                                Access your digital
+                                prescription records.
+                            </p>
+
+                        </div>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </button>
+
+
+                    <!-- PAYMENTS -->
+
+                    <button
+                            class="action-card"
+                            type="button"
+                            onclick="window.location.href='/patient/payments'">
+
+                        <div class="action-icon">
+
+                            <i class="bi bi-credit-card-2-front"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Payments
+                            </h3>
+
+                            <p>
+                                Make payments and
+                                download invoices.
+                            </p>
+
+                        </div>
+
+
+                        <i class="bi bi-arrow-up-right action-arrow"></i>
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- LOWER CONTENT -->
+            <!-- ================================================= -->
+
+            <section class="dashboard-bottom-grid">
+
+
+                <!-- ================================================= -->
+                <!-- RECENT APPOINTMENTS -->
+                <!-- ================================================= -->
+
+                <div class="content-card appointments-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <h2>
+                                Recent Appointments
+                            </h2>
+
+                            <p>
+                                Your latest appointment activity
+                            </p>
+
+                        </div>
+
+
+                        <a href="/patient/appointments">
+
+                            View all
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                    <div
+                            id="recentAppointments"
+                            class="appointment-list">
+
+
+                        <div class="empty-state">
+
+
+                            <div class="empty-icon">
+
+                                <i class="bi bi-calendar2"></i>
+
+                            </div>
+
+
+                            <h3>
+                                No appointments yet
+                            </h3>
+
+
+                            <p>
+                                Find a doctor and book your
+                                first appointment.
+                            </p>
+
+
+                            <button
+                                    class="small-primary-button"
+                                    type="button"
+                                    onclick="window.location.href='/patient/doctors'">
+
+                                Book Appointment
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- HEALTH SERVICES -->
+                <!-- ================================================= -->
+
+                <div class="content-card health-card">
+
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h2>
+                                Health Services
+                            </h2>
+
+                            <p>
+                                Your healthcare at a glance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="health-service-list">
+
+
+                        <!-- DIGITAL PRESCRIPTIONS -->
+
+                        <div
+                                class="health-service"
+                                onclick="window.location.href='/patient/prescriptions'"
+                                style="cursor:pointer;">
+
+                            <div class="health-service-icon">
+
+                                <i class="bi bi-file-earmark-medical"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Digital Prescriptions
+                                </strong>
+
+                                <span>
+                                    Access doctor prescriptions
+                                </span>
+
+                            </div>
+
+
+                            <i class="bi bi-chevron-right"></i>
+
+
+                        </div>
+
+
+                        <!-- PAYMENT INVOICES -->
+
+                        <div
+                                class="health-service"
+                                onclick="window.location.href='/patient/payments'"
+                                style="cursor:pointer;">
+
+                            <div class="health-service-icon">
+
+                                <i class="bi bi-receipt"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Payment Invoices
+                                </strong>
+
+                                <span>
+                                    View and download invoices
+                                </span>
+
+                            </div>
+
+
+                            <i class="bi bi-chevron-right"></i>
+
+
+                        </div>
+
+
+                        <!-- DOCTOR FEEDBACK -->
+
+                        <div
+                                class="health-service"
+                                onclick="window.location.href='/patient/reviews'"
+                                style="cursor:pointer;">
+
+                            <div class="health-service-icon">
+
+                                <i class="bi bi-chat-square-heart"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Doctor Feedback
+                                </strong>
+
+                                <span>
+                                    Share your experience
+                                </span>
+
+                            </div>
+
+
+                            <i class="bi bi-chevron-right"></i>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- FOOTER -->
+            <!-- ================================================= -->
+
+            <footer class="dashboard-footer">
+
+
+                <p>
+                    ©️ 2026 MediConnect.
+                    Your health, connected.
+                </p>
+
+
+                <div>
+
+                    <a href="#">
+                        Privacy
+                    </a>
+
+                    <a href="#"
+                       onclick="openSupportModal(); return false;">
+                        Support
+                    </a>
+
+                </div>
+
+
+            </footer>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- SUPPORT MODAL -->
+<!-- ================================================= -->
+
+<div
+        id="supportModal"
+        style="
+            display:none;
+            position:fixed;
+            inset:0;
+            background:rgba(15,23,42,0.45);
+            z-index:9999;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+        ">
+
+
+    <div
+            style="
+                background:#ffffff;
+                width:100%;
+                max-width:430px;
+                border-radius:20px;
+                padding:28px;
+                box-shadow:0 20px 60px rgba(15,23,42,0.25);
+                position:relative;
+            ">
+
+
+        <!-- CLOSE X -->
+
+        <button
+                type="button"
+                onclick="closeSupportModal()"
+                style="
+                    position:absolute;
+                    right:18px;
+                    top:18px;
+                    border:none;
+                    background:#f1f5f9;
+                    width:34px;
+                    height:34px;
+                    border-radius:50%;
+                    cursor:pointer;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                ">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <!-- ICON -->
+
+        <div
+                style="
+                    width:52px;
+                    height:52px;
+                    border-radius:14px;
+                    background:#e6fffa;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:23px;
+                    color:#0f9f94;
+                    margin-bottom:18px;
+                ">
+
+            <i class="bi bi-headset"></i>
+
+        </div>
+
+
+        <h2 style="margin:0 0 8px;">
+
+            MediConnect Support
+
+        </h2>
+
+
+        <p
+                style="
+                    color:#64748b;
+                    line-height:1.6;
+                    margin-bottom:22px;
+                ">
+
+            Need assistance with your appointment,
+            payment, prescription or account?
+            Contact our support team.
+
+        </p>
+
+
+        <!-- EMAIL -->
+
+        <div
+                style="
+                    padding:14px;
+                    border:1px solid #e2e8f0;
+                    border-radius:12px;
+                    margin-bottom:10px;
+                ">
+
+            <i
+                    class="bi bi-envelope"
+                    style="margin-right:8px;">
+            </i>
+
+            <strong>
+                Email
+            </strong>
+
+
+            <div
+                    style="
+                        margin-top:5px;
+                        color:#64748b;
+                    ">
+
+                support@mediconnect.com
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div
+                style="
+                    padding:14px;
+                    border:1px solid #e2e8f0;
+                    border-radius:12px;
+                ">
+
+            <i
+                    class="bi bi-telephone"
+                    style="margin-right:8px;">
+            </i>
+
+            <strong>
+                Phone
+            </strong>
+
+
+            <div
+                    style="
+                        margin-top:5px;
+                        color:#64748b;
+                    ">
+
+                +94 11 234 5678
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+                type="button"
+                class="primary-button"
+                onclick="closeSupportModal()"
+                style="
+                    width:100%;
+                    margin-top:20px;
+                    justify-content:center;
+                ">
+
+            Close
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="/js/patient-dashboard.js"></script>
+
+
+<script>
+
+    // =================================================
+    // OPEN SUPPORT MODAL
+    // =================================================
+
+    function openSupportModal() {
+
+        document.getElementById(
+            'supportModal'
+        ).style.display = 'flex';
+
+    }
+
+
+    // =================================================
+    // CLOSE SUPPORT MODAL
+    // =================================================
+
+    function closeSupportModal() {
+
+        document.getElementById(
+            'supportModal'
+        ).style.display = 'none';
+
+    }
+
+
+    // =================================================
+    // CLOSE WHEN CLICKING OUTSIDE MODAL
+    // =================================================
+
+    document.getElementById(
+        'supportModal'
+    ).addEventListener(
+        'click',
+        function (event) {
+
+            if (event.target === this) {
+
+                closeSupportModal();
+
+            }
+
+        }
+    );
+
+
+    // =================================================
+    // CLOSE WITH ESC KEY
+    // =================================================
+
+    document.addEventListener(
+        'keydown',
+        function (event) {
+
+            if (event.key === 'Escape') {
+
+                closeSupportModal();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

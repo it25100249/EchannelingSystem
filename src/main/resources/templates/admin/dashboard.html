@@ -1,0 +1,869 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>
+        MediConnect | Admin Dashboard
+    </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet"
+          href="/css/portal.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="side"
+           id="sidebar">
+
+
+        <div class="brand">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            MediConnect
+
+        </div>
+
+
+        <nav class="nav">
+
+
+            <a href="#overview"
+               class="active">
+
+                <i class="bi bi-grid"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="#payments">
+
+                <i class="bi bi-bank"></i>
+
+                Payments
+
+            </a>
+
+            <a href="#refunds">
+
+                <i class="bi bi-arrow-counterclockwise"></i>
+
+                Refunds
+
+            </a>
+
+
+            <a href="#hospitals">
+
+                <i class="bi bi-hospital"></i>
+
+                Hospitals
+
+            </a>
+
+
+            <a href="#doctors">
+
+                <i class="bi bi-person-badge"></i>
+
+                Doctors
+
+            </a>
+
+
+            <a href="#schedules">
+
+                <i class="bi bi-calendar3"></i>
+
+                Schedules
+
+            </a>
+
+
+            <!-- NEW REVIEWS MENU -->
+
+            <a href="#reviews">
+
+                <i class="bi bi-star"></i>
+
+                Reviews
+
+            </a>
+
+
+            <button id="logout">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                Sign Out
+
+            </button>
+
+
+        </nav>
+
+
+    </aside>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="top">
+
+
+            <button class="btn menu"
+                    id="menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <strong>
+                Admin Portal
+            </strong>
+
+
+            <div class="who">
+
+
+                <div class="avatar"
+                     id="avatar">
+
+                    A
+
+                </div>
+
+
+                <div>
+
+                    <b id="userName">
+                        Admin
+                    </b>
+
+                    <div style="font-size:9px;color:#94a3b8">
+
+                        Administrator
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT -->
+        <!-- ================================================= -->
+
+        <div class="content"
+             id="overview">
+
+
+            <div class="eyebrow">
+
+                SYSTEM ADMINISTRATION
+
+            </div>
+
+
+            <h1 class="title">
+
+                Welcome back
+
+            </h1>
+
+
+            <!-- HERO -->
+
+            <div class="hero">
+
+                <h2>
+
+                    Healthcare operations,
+                    all in one place.
+
+                </h2>
+
+                <p>
+
+                    Manage doctors,
+                    hospitals,
+                    schedules,
+                    payment verification
+                    and patient feedback
+                    from your dashboard.
+
+                </p>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- STAT CARDS -->
+            <!-- ================================================= -->
+
+            <div class="grid">
+
+
+                <div class="card stat">
+
+                    <span>
+                        Doctors
+                    </span>
+
+                    <b id="doctorCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Hospitals
+                    </span>
+
+                    <b id="hospitalCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Schedules
+                    </span>
+
+                    <b id="scheduleCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Pending payments
+                    </span>
+
+                    <b id="pendingCount">
+                        0
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+            <div id="adminMsg"></div>
+
+
+            <!-- ================================================= -->
+            <!-- PAYMENTS -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="payments">
+
+
+                <h2>
+
+                    Bank transfer verification
+
+                </h2>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Appointment</th>
+
+                            <th>Amount</th>
+
+                            <th>Status</th>
+
+                            <th>Slip</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="adminPayments">
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- ================================================= -->
+            <!-- REFUND REQUESTS -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="refunds">
+
+                <h2>
+                    Refund Requests
+                </h2>
+
+                <p style="color:#64748b;margin-bottom:18px;">
+
+                    Process refund requests from patients
+                    who cancelled paid appointments.
+
+                </p>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                        <tr>
+
+                            <th>Payment ID</th>
+
+                            <th>Appointment</th>
+
+                            <th>Method</th>
+
+                            <th>Amount</th>
+
+                            <th>Requested</th>
+
+                            <th>Reason</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="adminRefunds">
+
+                        <tr>
+
+                            <td colspan="8">
+                                Loading refund requests...
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+            <!-- ================================================= -->
+            <!-- HOSPITALS -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="hospitals">
+
+
+                <h2>
+
+                    Hospital management
+
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Hospital name
+                        </label>
+
+                        <input id="hName">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            City
+                        </label>
+
+                        <input id="hCity">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <input id="hAddress">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input id="hPhone">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input id="hEmail">
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button class="btn"
+                        id="addHospital">
+
+                    Add Hospital
+
+                </button>
+
+
+                <div id="adminHospitals">
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- DOCTORS -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="doctors">
+
+
+                <h2>
+
+                    Doctor management
+
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Full name
+                        </label>
+
+                        <input id="dName">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input id="dEmail"
+                               type="email">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input id="dPhone">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Specialization
+                        </label>
+
+                        <input id="dSpec">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            License number
+                        </label>
+
+                        <input id="dLicense">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Consultation fee
+                        </label>
+
+                        <input id="dFee"
+                               type="number">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Temporary password
+                        </label>
+
+                        <input id="dPassword"
+                               type="password">
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button class="btn"
+                        id="addDoctor">
+
+                    Add Doctor
+
+                </button>
+
+
+                <div id="adminDoctors">
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- SCHEDULES -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="schedules">
+
+
+                <h2>
+
+                    Schedule management
+
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Doctor
+                        </label>
+
+                        <select id="sDoctor">
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Hospital
+                        </label>
+
+                        <select id="sHospital">
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Date
+                        </label>
+
+                        <input id="sDate"
+                               type="date">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Start time
+                        </label>
+
+                        <input id="sStart"
+                               type="time">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            End time
+                        </label>
+
+                        <input id="sEnd"
+                               type="time">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Max patients
+                        </label>
+
+                        <input id="sMax"
+                               type="number"
+                               value="20">
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <div class="actions">
+
+
+                    <button class="btn secondary"
+                            id="assignDoctor">
+
+                        Assign Doctor to Hospital
+
+                    </button>
+
+
+                    <button class="btn"
+                            id="addSchedule">
+
+                        Create Schedule
+
+                    </button>
+
+
+                </div>
+
+
+                <div id="adminSchedules">
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- DOCTOR REVIEWS - NEW -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="reviews">
+
+
+                <h2>
+
+                    System Feedback
+
+                </h2>
+
+
+                <p style="color:#64748b;margin-bottom:18px;">
+
+                    View patient ratings and feedback
+                    submitted about the MediConnect system.
+
+                </p>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+
+                        <tr>
+
+                            <th>Review ID</th>
+
+                            <th>Feedback Type</th>
+
+                            <th>Patient</th>
+
+                            <th>Appointment</th>
+
+                            <th>Rating</th>
+
+                            <th>Comment</th>
+
+                            <th>Date</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+
+                        </thead>
+
+
+                        <tbody id="adminReviews">
+
+
+                        <tr>
+
+                            <td colspan="8">
+
+                                Loading reviews...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="/js/common.js"></script>
+
+<script src="/js/admin-dashboard.js"></script>
+
+
+</body>
+
+</html>

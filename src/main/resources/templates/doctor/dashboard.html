@@ -1,0 +1,539 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1">
+
+    <title>
+        MediConnect | Doctor Dashboard
+    </title>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link
+            rel="stylesheet"
+            href="/css/portal.css">
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="side"
+           id="sidebar">
+
+
+        <div class="brand">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            MediConnect
+
+        </div>
+
+
+        <nav class="nav">
+
+
+            <a href="#overview"
+               class="active">
+
+                <i class="bi bi-grid"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="#appointments">
+
+                <i class="bi bi-calendar-check"></i>
+
+                Appointments
+
+            </a>
+
+
+            <a href="#consultation">
+
+                <i class="bi bi-file-earmark-medical"></i>
+
+                Consultation Notes
+
+            </a>
+
+
+            <a href="#prescription">
+
+                <i class="bi bi-capsule"></i>
+
+                Prescriptions
+
+            </a>
+
+
+            <!-- NEW -->
+
+            <a href="#reviews">
+
+                <i class="bi bi-star"></i>
+
+                My Reviews
+
+            </a>
+
+
+            <button id="logout">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                Sign Out
+
+            </button>
+
+
+        </nav>
+
+
+    </aside>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="top">
+
+
+            <button class="btn menu"
+                    id="menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <strong>
+                Doctor Portal
+            </strong>
+
+
+            <div class="who">
+
+
+                <div class="avatar"
+                     id="avatar">
+
+                    U
+
+                </div>
+
+
+                <div>
+
+                    <b id="userName">
+                        User
+                    </b>
+
+
+                    <div style="font-size:9px;color:#94a3b8">
+
+                        Doctor
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT -->
+        <!-- ================================================= -->
+
+        <div class="content"
+             id="overview">
+
+
+            <div class="eyebrow">
+
+                DOCTOR WORKSPACE
+
+            </div>
+
+
+            <h1 class="title">
+
+                Doctor Dashboard
+
+            </h1>
+
+
+            <p class="sub">
+
+                Schedules, appointments,
+                consultation notes,
+                prescriptions and patient reviews.
+
+            </p>
+
+
+            <div class="hero">
+
+                <h2>
+                    Your clinical workspace
+                </h2>
+
+                <p>
+                    Review appointments,
+                    record consultation notes,
+                    issue digital prescriptions
+                    and view patient feedback.
+                </p>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- STAT CARDS -->
+            <!-- ================================================= -->
+
+            <div class="grid">
+
+
+                <div class="card stat">
+
+                    <span>
+                        My schedules
+                    </span>
+
+                    <b id="scheduleCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Appointments
+                    </span>
+
+                    <b id="appointmentCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Consultation notes
+                    </span>
+
+                    <b id="noteCount">
+                        0
+                    </b>
+
+                </div>
+
+
+                <div class="card stat">
+
+                    <span>
+                        Prescriptions
+                    </span>
+
+                    <b id="prescriptionCount">
+                        0
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- APPOINTMENTS -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="appointments">
+
+
+                <h2>
+                    My schedule & appointments
+                </h2>
+
+
+                <div
+                        id="doctorAppointments"
+                        class="empty">
+
+                    Loading...
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- CONSULTATION NOTE -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="consultation">
+
+
+                <h2>
+                    Create consultation note
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="field">
+
+                        <label>
+                            Appointment ID
+                        </label>
+
+                        <input
+                                id="noteAppointment"
+                                type="number">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Symptoms
+                        </label>
+
+                        <input id="symptoms">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Diagnosis
+                        </label>
+
+                        <input id="diagnosis">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>
+                            Notes
+                        </label>
+
+                        <textarea id="notes"></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <br>
+
+
+                <button
+                        class="btn"
+                        id="saveNote">
+
+                    <i class="bi bi-file-earmark-medical"></i>
+
+                    Save Note
+
+                </button>
+
+
+                <div id="doctorMsg"></div>
+
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- PRESCRIPTION -->
+            <!-- ================================================= -->
+
+            <div class="panel" id="prescription">
+                <h2 id="prescriptionFormTitle">Create prescription</h2>
+                <p class="sub">Create a prescription with one or more medicines for a patient's appointment.</p>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Appointment ID</label>
+                        <input id="prescriptionAppointment" type="number" placeholder="Enter appointment ID">
+                    </div>
+                </div>
+
+                <br>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                    <h3 style="margin:0">Medicines</h3>
+                    <button class="btn" id="addMedicineButton" type="button">
+                        <i class="bi bi-plus-circle"></i> Add Medicine
+                    </button>
+                </div>
+
+                <div id="medicineRows" style="margin-top:14px"></div>
+
+                <br>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <button class="btn" id="savePrescription" type="button">
+                        <i class="bi bi-capsule"></i> Save Prescription
+                    </button>
+                    <button class="btn" id="cancelPrescriptionEdit" type="button" style="display:none">
+                        Cancel Edit
+                    </button>
+                </div>
+                <div id="prescriptionMsg"></div>
+
+                <hr style="margin:28px 0;border:0;border-top:1px solid #e2e8f0">
+                <h3>My Prescriptions</h3>
+                <p class="sub">Edit or delete prescriptions you have issued.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>ID</th><th>Appointment</th><th>Medicines</th><th>Issued</th><th>Actions</th></tr></thead>
+                        <tbody id="doctorPrescriptionRows"><tr><td colspan="5">Loading prescriptions...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ================================================= -->
+            <!-- MY REVIEWS - NEW -->
+            <!-- ================================================= -->
+
+            <div class="panel"
+                 id="reviews">
+
+
+                <h2>
+
+                    My Patient Reviews
+
+                </h2>
+
+
+                <p class="sub">
+
+                    Ratings and feedback
+                    submitted by your patients.
+
+                </p>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                        <tr>
+
+                            <th>Review ID</th>
+
+                            <th>Appointment</th>
+
+                            <th>Patient</th>
+
+                            <th>Rating</th>
+
+                            <th>Comment</th>
+
+                            <th>Date</th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="doctorReviews">
+
+
+                        <tr>
+
+                            <td colspan="6">
+
+                                Loading reviews...
+
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="/js/common.js"></script>
+
+<script src="/js/doctor-dashboard.js"></script>
+
+
+</body>
+
+</html>

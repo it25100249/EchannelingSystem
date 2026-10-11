@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediConnect | Find Doctors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="/css/doctors.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <div>
+                <h2>MediConnect</h2>
+                <span>Patient Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <p class="menu-label">MAIN MENU</p>
+
+            <a href="/patient/dashboard"
+               class="menu-item">
+
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="/patient/doctors"
+               class="menu-item active">
+
+                <i class="bi bi-search"></i>
+                <span>Find Doctors</span>
+
+            </a>
+
+
+            <a href="/patient/appointments"
+               class="menu-item">
+
+                <i class="bi bi-calendar2-check"></i>
+                <span>My Appointments</span>
+
+            </a>
+
+
+            <a href="/patient/payments"
+               class="menu-item">
+
+                <i class="bi bi-credit-card"></i>
+                <span>Payments</span>
+
+            </a>
+
+
+            <p class="menu-label second-label">
+                HEALTH RECORDS
+            </p>
+
+
+            <a href="/patient/prescriptions"
+               class="menu-item">
+
+                <i class="bi bi-file-earmark-medical"></i>
+                <span>Prescriptions</span>
+
+            </a>
+
+
+            <a href="/patient/reviews"
+               class="menu-item">
+
+                <i class="bi bi-star"></i>
+                <span>Doctor Reviews</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+
+                <div class="help-icon">
+                    <i class="bi bi-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Need help?</strong>
+                    <p>Contact our support team</p>
+                </div>
+
+            </div>
+
+
+            <button class="logout-button"
+                    id="logoutButton">
+
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Sign Out</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu-button"
+                    id="mobileMenuButton">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="page-location">
+
+                <span>Patient Portal</span>
+
+                <i class="bi bi-chevron-right"></i>
+
+                <strong>Find Doctors</strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button class="notification-button">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div class="user-avatar"
+                         id="userAvatar">
+                        P
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong id="topUserName">
+                            Patient
+                        </strong>
+
+                        <span>Patient</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE -->
+
+        <div class="page-content">
+
+
+            <!-- =========================
+                 PAGE HEADING
+            ========================== -->
+
+            <section class="page-heading">
+
+                <div>
+
+                    <p class="page-label">
+                        DOCTOR DIRECTORY
+                    </p>
+
+                    <h1>
+                        Find the right doctor
+                        <span>for you.</span>
+                    </h1>
+
+                    <p class="heading-description">
+                        Search doctors and check their
+                        available channeling schedules.
+                    </p>
+
+                </div>
+
+
+                <div class="heading-icon">
+
+                    <i class="bi bi-person-heart"></i>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 SEARCH PANEL
+            ========================== -->
+
+            <section class="search-panel">
+
+                <div class="search-panel-heading">
+
+                    <div class="search-heading-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <div>
+                        <h2>Search Availability</h2>
+                        <p>
+                            Select a hospital and date to
+                            find available doctors.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="search-form">
+
+
+                    <!-- HOSPITAL -->
+
+                    <div class="form-group">
+
+                        <label for="hospitalSelect">
+                            Hospital
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-hospital"></i>
+
+                            <select id="hospitalSelect">
+
+                                <option value="">
+                                    Select hospital
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="scheduleDate">
+                            Appointment Date
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-calendar3"></i>
+
+                            <input type="date"
+                                   id="scheduleDate">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SPECIALIZATION -->
+
+                    <div class="form-group">
+
+                        <label for="specializationSelect">
+                            Specialization
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-activity"></i>
+
+                            <select id="specializationSelect">
+
+                                <option value="">
+                                    All specializations
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="search-button-wrapper">
+
+                        <button id="searchDoctorButton"
+                                class="search-button">
+
+                            <i class="bi bi-search"></i>
+                            Search Doctors
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 RESULTS HEADING
+            ========================== -->
+
+            <section class="results-heading">
+
+                <div>
+
+                    <h2>Available Doctors</h2>
+
+                    <p id="resultMessage">
+                        Select a hospital and date to
+                        check available doctors.
+                    </p>
+
+                </div>
+
+
+                <div class="result-count">
+
+                    <i class="bi bi-people"></i>
+
+                    <span id="doctorCount">
+                        0 doctors
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 LOADING
+            ========================== -->
+
+            <div id="loadingState"
+                 class="loading-state hidden">
+
+                <div class="loader"></div>
+
+                <p>
+                    Finding available doctors...
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 ERROR
+            ========================== -->
+
+            <div id="errorMessage"
+                 class="error-message hidden">
+
+                <i class="bi bi-exclamation-circle"></i>
+
+                <span>
+                    Unable to load doctors.
+                </span>
+
+            </div>
+
+
+            <!-- =========================
+                 DOCTOR CARDS
+            ========================== -->
+
+            <section id="doctorGrid"
+                     class="doctor-grid">
+
+                <!-- Doctor cards will be
+                     created using JavaScript -->
+
+            </section>
+
+
+            <!-- =========================
+                 INITIAL EMPTY STATE
+            ========================== -->
+
+            <section id="emptyState"
+                     class="empty-state">
+
+                <div class="empty-illustration">
+
+                    <div class="empty-circle">
+
+                        <i class="bi bi-calendar2-heart"></i>
+
+                    </div>
+
+                </div>
+
+
+                <h2>
+                    Find your next appointment
+                </h2>
+
+                <p>
+                    Choose a hospital and appointment
+                    date above. We'll show doctors with
+                    available schedules.
+                </p>
+
+                <div class="empty-steps">
+
+                    <div class="empty-step">
+                        <i class="bi bi-patch-check-fill"></i>
+                        Verified doctors
+                    </div>
+
+                    <div class="empty-step">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Instant booking
+                    </div>
+
+                    <div class="empty-step">
+                        <i class="bi bi-shield-lock-fill"></i>
+                        Secure payments
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     BOOKING MODAL
+========================== -->
+
+<div id="bookingModal"
+     class="modal-overlay hidden">
+
+    <div class="booking-modal">
+
+
+        <button class="modal-close"
+                id="closeBookingModal">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <div class="modal-heading">
+
+            <div class="modal-icon">
+
+                <i class="bi bi-calendar2-check"></i>
+
+            </div>
+
+            <div>
+
+                <span>BOOK APPOINTMENT</span>
+
+                <h2>
+                    Confirm your appointment
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="selected-doctor">
+
+            <div class="doctor-avatar"
+                 id="modalDoctorAvatar">
+
+                DR
+
+            </div>
+
+            <div>
+
+                <h3 id="modalDoctorName">
+                    Doctor Name
+                </h3>
+
+                <p id="modalSpecialization">
+                    Specialization
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="appointment-summary">
+
+
+            <div class="summary-item">
+
+                <i class="bi bi-hospital"></i>
+
+                <div>
+                    <span>Hospital</span>
+
+                    <strong id="modalHospital">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <i class="bi bi-calendar3"></i>
+
+                <div>
+                    <span>Date</span>
+
+                    <strong id="modalDate">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <i class="bi bi-clock"></i>
+
+                <div>
+                    <span>Time</span>
+
+                    <strong id="modalTime">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <i class="bi bi-cash-stack"></i>
+
+                <div>
+                    <span>Consultation Fee</span>
+
+                    <strong id="modalFee">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="reason-group">
+
+            <label for="appointmentReason">
+                Reason for appointment
+            </label>
+
+            <textarea id="appointmentReason"
+                      maxlength="500"
+                      placeholder="Briefly describe the reason for your visit..."></textarea>
+
+            <small>
+                Optional · Maximum 500 characters
+            </small>
+
+        </div>
+
+
+        <div id="bookingMessage"
+             class="booking-message">
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button class="cancel-button"
+                    id="cancelBookingButton">
+
+                Cancel
+
+            </button>
+
+            <button class="confirm-button"
+                    id="confirmBookingButton">
+
+                <i class="bi bi-calendar-check"></i>
+
+                Confirm Appointment
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="/js/doctors.js"></script>
+
+</body>
+</html>

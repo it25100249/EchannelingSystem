@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediConnect | Sign In</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <!-- LEFT SIDE -->
+    <section class="login-brand-section">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <span>MediConnect</span>
+        </div>
+
+        <div class="brand-content">
+
+            <span class="welcome-badge">
+                <i class="bi bi-shield-check"></i>
+                Trusted Healthcare Platform
+            </span>
+
+            <h1>
+                Your health,
+                <span>connected.</span>
+            </h1>
+
+            <p>
+                Find trusted doctors, book appointments and manage
+                your healthcare journey from one secure platform.
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <div>
+                        <h3>Find the right doctor</h3>
+                        <p>Search doctors by specialization and hospital.</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="bi bi-calendar2-check"></i>
+                    </div>
+
+                    <div>
+                        <h3>Easy appointments</h3>
+                        <p>Book and manage your appointments online.</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="bi bi-file-earmark-medical"></i>
+                    </div>
+
+                    <div>
+                        <h3>Digital healthcare</h3>
+                        <p>Access prescriptions, payments and invoices easily.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 MediConnect. Better care starts here.
+        </p>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="login-form-section">
+
+        <div class="login-card">
+
+            <div class="mobile-brand">
+                <div class="brand-icon">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </div>
+                <span>MediConnect</span>
+            </div>
+
+            <div class="login-heading">
+                <span class="small-label">WELCOME BACK</span>
+
+                <h2>Sign in to your account</h2>
+
+                <p>
+                    Enter your details to continue to your dashboard.
+                </p>
+            </div>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-envelope"></i>
+
+                        <input
+                                type="email"
+                                id="email"
+                                placeholder="name@example.com"
+                                required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-lock"></i>
+
+                        <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required>
+
+                        <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle">
+
+                            <i class="bi bi-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="loginMessage"
+                     class="login-message">
+                </div>
+
+
+                <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton">
+
+                    <span>Sign In</span>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <div class="register-text">
+
+                <span>New to MediConnect?</span>
+
+                <a href="/register">
+                    Create an account
+                </a>
+
+            </div>
+
+
+            <div class="secure-text">
+
+                <i class="bi bi-shield-lock"></i>
+
+                <span>
+                    Your information is protected and secure
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="/js/login.js"></script>
+
+</body>
+</html>
