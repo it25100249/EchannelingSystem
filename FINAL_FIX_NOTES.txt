@@ -1,0 +1,32 @@
+FINAL FIXES - 2026-10-03
+
+1. Payment SQL Server trigger conflict fixed
+   PaymentRepository.saveAndReturnId now uses OUTPUT ... INTO a table variable and SELECTs the generated payment_id.
+   This is compatible with enabled triggers on Payments and fixes both CARD and BANK_TRANSFER inserts.
+
+2. Payment appointment identification fixed
+   UI now shows unique Booking # (appointment_id), Queue # (appointment_number), doctor, hospital, date/time and consultation fee.
+   Queue numbers may repeat across different doctor schedules by design; Booking # is the unique appointment reference.
+
+3. Pay Now selection fixed/improved
+   Clicking Pay Now selects the exact appointment by appointment_id, updates the summary and scrolls to payment form.
+
+4. System Feedback appointment identification fixed
+   Dropdown shows Booking #, Queue #, hospital and date. Already-reviewed appointments remain excluded.
+
+5. Admin CRUD editing UI fixed
+   Hospital, Doctor and Schedule edits now use in-dashboard modal forms instead of browser prompt() dialogs.
+   Hospital modal includes name, city, address, phone and email.
+   Delete/refund confirmations in admin dashboard use an in-dashboard modal instead of browser confirm().
+
+6. Existing design-pattern implementation is preserved.
+
+TEST ORDER
+- Restart Spring Boot after replacing project.
+- Book a NEW appointment.
+- Open Payments and click Pay Now on that exact Booking #.
+- Test CARD payment; verify Payments + Invoices and appointment payment_status.
+- Book another appointment and test BANK_TRANSFER slip upload; Admin approve/reject.
+- Test System Feedback and Admin CRUD modals.
+
+NOTE: Maven executable was not available in the packaging environment, so a full Maven build could not be executed here. JavaScript syntax checks passed for modified JS files.

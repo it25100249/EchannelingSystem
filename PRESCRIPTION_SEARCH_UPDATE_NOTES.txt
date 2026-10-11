@@ -1,0 +1,7 @@
+MediConnect update
+- Doctor prescription form supports unlimited medicine rows with Add/Remove Medicine.
+- Doctor can edit and delete issued prescriptions from Doctor Dashboard.
+- Patient prescription page includes Download PDF.
+- Added GET /api/prescriptions/{prescriptionId}/pdf.
+- Patient dashboard top search now live-filters doctor names/specializations and hospitals/cities.
+- No database migration is required for multiple medicines because Prescription_Items already supports 1:N.

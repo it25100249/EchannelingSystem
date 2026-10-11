@@ -1,0 +1,14 @@
+MediConnect frontend completion
+- Corrected static JS location to src/main/resources/static/js
+- Added patient registration page
+- Added patient Payments & Invoices page (card + bank slip)
+- Added patient Prescriptions page
+- Added patient Doctor Reviews page
+- Upgraded My Appointments with doctor/hospital/date/time details and cancellation
+- Fixed appointment booking frontend to handle the backend text response
+- Added Doctor dashboard with schedules/appointments and consultation-note creation
+- Added Admin dashboard with bank-slip approval/rejection, doctor/hospital summaries
+- Added role-aware login support in UserRepository for PATIENT, DOCTOR and ADMIN
+- Added all view routes in ViewController
+
+Run with your existing SQL Server configuration. Existing database schema/data are not embedded in this ZIP.
